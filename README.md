@@ -1,25 +1,7 @@
 <a name="readme-top"></a>
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-Modify this file to match your project and remove sections that don't apply.
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-OPTIONAL SECTIONS:
-- FAQ
-After you're finished please remove all the comments and instructions!
--->
+
 <h1>Blog App</h1>
+
 <!-- TABLE OF CONTENTS -->
 # :green_book: Table of Contents
 - [:book: About the Project](#about-project)
@@ -41,6 +23,7 @@ After you're finished please remove all the comments and instructions!
 - [:pray: Acknowledgements](#acknowledgements)
 - [:question: FAQ (OPTIONAL)](#faq)
 - [:memo: License](#license)
+
 <!-- PROJECT DESCRIPTION -->
 
 # :App: Blog App <a name="about-project"></a>
@@ -54,7 +37,9 @@ Blog app is a project built with ruby on rails(ROR). This web app serves as an o
     <li><a href="https://expressjs.com/">Ruby</a></li>
   </ul>
 </details>
+
 <!-- Features -->
+
 ### Key Features <a name="key-features"></a>
 - **Create new user account**
 - **Create new posts**
@@ -62,7 +47,9 @@ Blog app is a project built with ruby on rails(ROR). This web app serves as an o
 - **Comment on posts**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
+
 ## :computer: Getting Started <a name="getting-started"></a>
 To get a local copy up and running, follow these steps.
 ### Prerequisites
@@ -77,7 +64,9 @@ Install this project with: `bundle install`
 To test your code for errors, rub the following
 `rubocop --colors`
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- AUTHORS -->
+
 ## :busts_in_silhouette: Authors <a name="authors"></a>
 :bust_in_silhouette: **Author**
 - GitHub: [
@@ -88,20 +77,28 @@ To test your code for errors, rub the following
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/Joseph Irirwanirira)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- FUTURE FEATURES -->
+
 ## :telescope: Future Features <a name="future-features"></a>
 - [ ] **Add UI**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
+
 ## :handshake: Contributing <a name="contributing"></a>
 Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](../../issues/).
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- SUPPORT -->
+
 ## :star:️ Show your support <a name="support"></a>
 If you like this project...
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- ACKNOWLEDGEMENTS -->
+
 ## :pray: Acknowledgments <a name="acknowledgements"></a>
 I would like to thank...
 - MIcroverse
