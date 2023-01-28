@@ -8,12 +8,12 @@ RSpec.describe Like, type: :model do
 
     before { @like }
 
-    it 'when author_id is defined' do
-      @like.author_id = false
+    it ' Author_id should not be blank' do
+      @like.author_id = nil
       expect(@like).to_not be_valid
     end
 
-    it 'when post_id is defined' do
+    it ' Post_id should not be blank ' do
       @like.post_id = nil
       expect(@like).to_not be_valid
     end

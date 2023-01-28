@@ -8,28 +8,23 @@ RSpec.describe Post, type: :model do
 
     before { subject.save }
 
-    it 'Title should be present' do
+    it 'Title must not be blank.' do
       subject.Title = nil
       expect(subject).to_not be_valid
     end
 
-    it 'Title should not exceed 250 characters' do
-      subject.Title = nil
+    it 'Title must not exceed 250 characters' do
+      subject.Title = 300
       expect(subject).to_not be_valid
     end
 
-    it 'comment_counter should be present' do
-      subject.comment_count = nil
+    it 'CommentsCounter must be an integer greater than or equal to zero' do
+      subject.comment_count = -1
       expect(subject).to_not be_valid
     end
 
-    it 'like_counter should be present' do
-      subject.like_counter = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'comment_count should allow valid values' do
-      subject.comment_count = 12
+    it 'LikesCounter must be an integer greater than or equal to zero' do
+      subject.like_counter = -1
       expect(subject).to_not be_valid
     end
   end

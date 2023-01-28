@@ -8,18 +8,18 @@ RSpec.describe User, type: :model do
 
     before { subject.save }
 
-    it 'name should be present' do
+    it 'Name must not be blank' do
       subject.name = nil
       expect(subject).to_not be_valid
     end
 
-    it 'posts_counter should be present' do
-      subject.posts_counter = nil
+    it 'CommentsCounter must be an integer' do
+      subject.posts_counter = ''
       expect(subject).to_not be_valid
     end
 
-    it 'posts_counter should allow valid values' do
-      subject.posts_counter = 34
+    it 'CommentsCounter must be an integer greater than or equal to zero' do
+      subject.posts_counter = -1
       expect(subject).to_not be_valid
     end
   end
