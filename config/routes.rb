@@ -3,10 +3,10 @@
   # root "articles#index"
   
 Rails.application.routes.draw do
-  get "users/:user_id/posts", to: "posts#index", as: "user_posts"
-  get "users/user_id/posts/:id", to: "posts#show", as: "user_post"
+  root "users#index"
 
-  get "users", to: "users#index" 
-  get "users/:id", to: "users#show", as: "user"
+  resources :users, ony: [:index, :show] do 
+    resources :posts,only: [:index, :show]
+  end
 
 end
