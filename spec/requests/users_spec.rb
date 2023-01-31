@@ -1,35 +1,25 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
- 
-
-  describe "GET /index" do
-
-        #make aget request
-        get user_posts_path
- #post to create new post
-
-      #  user['user_id'] = 1
-      #  post user_posts, user: {name: 'joseph', bio: "HELLO Rails"}
-
-
-      before(:each) do
-        subject { User.new(name: 'joseph', bio: "HELLO Rails") }
-      end
-  
-      before { subject.save }
-  
-      it 'Name must not be blank' do
-        # check values on the response
-        expect(response.body).to include 'user'
+RSpec.describe 'Users', type: :request do
+  describe 'GET /index' do
+    context 'when page is opened ' do
+      it 'has to return a correct response' do
+        get '/users'
         expect(response).to have_http_status(200)
-    
+        expect(response).to render_template(:index)
+        expect(response.body).to include('users')
       end
- 
+    end
+  end
 
-   
-
-    
-   
+  describe 'GET /show' do
+    context 'when page is open' do
+      it 'has to return a correct response' do
+        get '/users/:id'
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+        expect(response.body).to include('Show list of all users')
+      end
+    end
   end
 end
