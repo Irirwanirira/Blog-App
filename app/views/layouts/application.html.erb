@@ -9,8 +9,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <%= yield %>
+    <div>
+      <div id = "header">
+        <h1> New library to display </h1>
+        <h3> Powered by Rails App </h3>
+      </div>
+
+      <div>
+        <%= yield %>
+      </div>
+    
+    </div>
   </body>
 </html>

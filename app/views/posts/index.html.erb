@@ -1,2 +1,30 @@
 <h1> Post </h1>
 <p> Lists all posts for Joseph</p>
+
+<div>
+    <section class="main_post">
+
+    <div>
+        <img src="<%= @user.photo %>" alt="image">
+    </div>
+
+        <div>
+            <h2>
+                <%= @user.name%>
+            </h2>
+            <p class="self-end text-xs">
+                Number of posts: <%= @user.posts_counter || 0%>
+            </p>
+        </div> 
+        <div>
+            <% @user.bio %>
+        </div>
+        
+    </section>
+
+    <section>
+        <% @user.posts.each do |post| %>
+            <%= render parial: 'post', locals: {post: post} %>
+        <% end %>
+    </section>
+</div>
