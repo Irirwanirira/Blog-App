@@ -10,5 +10,5 @@ class User < ApplicationRecord
   end
 
   validates :name, presence: true, length: { in: 6..25 }
-  validates :posts_counter, presence: true, length: { in: 0..10 }, numericality: { only_integer: true }
+  validates :posts_counter, presence: true, length: { in: 0..10 },  numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end
