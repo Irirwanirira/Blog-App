@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     new_post.author = user
     if new_post.save
       redirect_to user_posts_url(id: user.id)
-    else 
+    else
       redirect_to new_post_url(user_id: user.id)
     end
   end
