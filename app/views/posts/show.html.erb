@@ -18,7 +18,7 @@
         <p><%= @post.Text%></p>
     </section>
 
-    <div class="border-2 p-3">
+    <div >
         <% @post.recent_comments.each do |comment| %>
             <div>
                 <p> 
@@ -34,4 +34,7 @@
         <% end %>
     </div>
 
+    <%= link_to new_user_post_comment_path(post_id: @post.id) do %>
+        <button>Create comment</button>
+    <% end %>
 </div>
