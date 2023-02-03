@@ -3,17 +3,13 @@
 # root "articles#index"
 
 Rails.application.routes.draw do
-  # devise_for :users
+
   root "users#index"
 
-  resources :users, ony: [:index, :show] do 
+  resources :users, only: [:index, :show] do 
     resources :posts,only: [:index, :show, :new, :create] do 
-      resources :comments, only: [:create]
+      resources :comments, only: [:new, :create]
+      resources :like, only: [:new, :create]
     end
   end
-
-  resources :posts do 
-    resources :like, only: [:create]
-  end
-
 end
