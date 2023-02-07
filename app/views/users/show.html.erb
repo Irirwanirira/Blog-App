@@ -1,9 +1,9 @@
 <section>
   <div >
-    <div >
+    <div>
       <img src="<%= @user.photo %>" alt="image">
     </div>
-
+  
     <div>
       <h2>
       <%= @user.name %></h2>
@@ -16,30 +16,30 @@
   </div>
 
   <div>
-    <h4> Bio </h4>
+  <h4> Bio </h4>
     <p>
-      <%= @user.bio %>
+    <%= @user.bio %>
     </p>
   </div>
 
-  <div>
-    <% @user.recent_posts.each do |post|  %>
-    <%= link_to user_post_path(@user, id: post:id) do %>
-      <p> Post <% post.id %></p>
-      <p><%= post.text %></p>
-      <p> 
-        <span>
-        Comments: <%= post.comments_counter || 0 %>,
-        Likes: <%= post.likes_counter || 0 %>
-        </span>
-      </p>
-    <% end %>
 
-   
+  <div>
+    <% @user.recent_posts.each do |post| %>
+    <%= link_to user_post_path(@user, id: post.id) do %>
+    <p>Post #<%= post.id %></p>
+    <p><%= post.Text %></p>
+    <p>
+        <span>
+          Comments: <%= post.comment_count || 0 %>,
+          Likes: <%= post.like_counter || 0 %>
+        </span>
+    </p>
+  <% end %>
+    
+    <% end %>
   </div>
 
   <button>
     <%= link_to "See all posts", user_posts_path(@user) %>
   </button>
-
-<section>
+</section>
