@@ -15,6 +15,7 @@ RSpec.describe 'Users', type: :system do
 
       @users.each do |user|
         expect(page).to have_text(user.name)
+        expect(page).to have_css("img[src*=\"#{user.photo}\"]")
         expect(page).to have_text(user.posts_counter)
         expect(page).to have_link(href: user_path(user))
       end
