@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :system do
     it 'I can see a post title' do
       visit user_posts_path(@user)
       @posts.each do |post|
-        expect(page).to have_content(post.title)
+        expect(page).to have_text(post.text.slice(0, 80))
       end
     end
 

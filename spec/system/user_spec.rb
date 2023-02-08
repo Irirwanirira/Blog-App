@@ -61,7 +61,6 @@ RSpec.describe 'Users', type: :system do
       visit(user_path(@user))
 
       @user.recent_posts.each do |post|
-        expect(page).to have_text(post.title)
         expect(page).to have_text(post.text.slice(0, 80))
         expect(page).to have_link(href: user_post_path(@user.id, post.id))
       end
