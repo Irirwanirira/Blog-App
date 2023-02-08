@@ -60,7 +60,7 @@ RSpec.describe 'Posts', type: :system do
       click_on post.title
       expect(page).to have_current_path user_post_path(@user, post)
     end
-    
+
     it 'I can see a section for pagination if there are more posts than fit on the view' do
       visit user_posts_path(@user)
       @posts.each do |post|
