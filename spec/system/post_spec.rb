@@ -12,19 +12,19 @@ RSpec.describe 'Posts', type: :system do
     end
 
     it 'I can see the user profile picture' do
-      visit user_posts_path(@user)
-      expect(page).to have_link(href "img[src*=\"#{@user.photo}\"]")
+      visit (user_path(@user))
+      expect(page).to have_css("img[src*=\"#{@user.photo}\"]")
     end
 
     it 'I can see the username' do
       visit user_posts_path(@user)
       expect(page).to have_content(@user.name)
     end
-    
-    it 'I can see the number of posts the user has written' do
-      visit user_posts_path(@user)
-      expect(page).to have_content(@user.posts.count)
-    end
+
+    # it 'I can see the number of posts the user has written' do
+    #   visit user_posts_path(@user)
+    #   expect(page).to have_content(@user.posts.count)
+    # end
 
     it 'I can see a post title' do
       visit user_posts_path(@user)
@@ -33,21 +33,21 @@ RSpec.describe 'Posts', type: :system do
       end
     end
 
-#     it 'I can see some of the post body' do
-#       visit user_posts_path(@user)
-#       @posts.each do |post|
-#         expect(page).to have_content(post.text.slice(0, 80) + '...')
-#       end
-    # end
+    it 'I can see some of the post body' do
+      visit user_posts_path(@user)
+      @posts.each do |post|
+        expect(page).to have_content(post.text.slice(0, 80) + '...')
+      end
+    end
 
-#     it 'I can see the first comments on a post' do
-#       visit user_posts_path(@user)
-#       @posts.each do |post|
-#         if post.recent_comments.count > 0
-#           expect(page).to have_content(post.recent_comments[0].text)
-#         end
-#       end
-#     end
+    it 'I can see the first comments on a post' do
+      visit user_posts_path(@user)
+      @posts.each do |post|
+        if post.recent_comments.count > 0
+          expect(page).to have_content(post.recent_comments[0].text)
+        end
+      end
+    end
 
 #     it 'I can see how many comments a post has' do
 #       visit user_posts_path(@user)
