@@ -1,30 +1,18 @@
-<h1> Post </h1>
-<p> Lists all posts for Joseph</p>
-
-<div>
-    <section class="main_post">
-
-        <div>
-            <img src="<%= @user.photo %>" alt="image">
-        </div>
-
-        <div>
-            <h2>
-                <%= @user.name%>
-            </h2>
-            <p class="self-end text-xs">
-                Number of posts: <%= @user.posts_counter || 0%>
-            </p>
-        </div> 
-        <div>
-            <% @user.bio %>
-        </div>
-        
-    </section>
-
-    <section>
-        <% @user.posts.each do |post| %>
-            <%= render parial: 'post', locals: {post: post} %>
-        <% end %>
-    </section>
-</div>
+<% @posts.each do |post| %>
+    <article>
+        <h3><%= post.Title %></h3>
+        <p><%= post.Text.slice(0, 80) + '...' %>
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>">View this Post</a></p>
+        <section>
+            <p>Comments: <%= post.comment_count %></p>
+            <p>Likes: <%= post.like_counter %></p>
+        </section>
+        <section>
+            <% post.recent_comments.each do |comment| %>
+                <article>
+                    <p><%= comment.author.name + ': ' + comment.Text %></p>
+                </article>
+            <% end %>
+        </section>
+    </article>
+<% end %>

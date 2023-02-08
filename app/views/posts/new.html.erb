@@ -1,10 +1,12 @@
-<section>
-    <h3>Add new post</h3>
-    <%= form_with model: @new_post, url: user_posts_url, method: :post do |form| %>
-        <%= form.label :Title %>
-        <%= form.text_field :Title %>      
-        <%= form.label :Text %>
-        <%= form.text_area :Text %>      
-        <%= form.submit "Add post"%>
-    <% end %> 
-</section>
+<h1>Create Post</h1>
+<%= form_with model: @post, url: user_posts_path, method: :post, local: true, scope: :new_post do |form| %>
+  <section>
+    <%= form.label :Subject %>
+    <%= form.text_field :Title, class: "form-control" %>
+  </section>
+  <section>
+    <%= form.label :Comment %>
+    <%= form.text_area :Text, class: "form-control text" %>
+  </section>
+  <button><%= form.submit %></button>
+<% end %>
