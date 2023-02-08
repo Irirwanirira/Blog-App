@@ -1,30 +1,42 @@
 class PostsController < ApplicationController
+  layout 'standard'
+  before_action :fetch_user
+
   def index
-    @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = @user.posts.find(params[:id])
   end
 
   def new
-    @new_post = Post.new
+    @post = @user.posts.new
+    render :new, locals: { post: @post }
   end
 
   def create
-    puts params
-    user = current_user
-    new_post = Post.new(post_params)
-    new_post.author = user
-    if new_post.save
-      redirect_to user_posts_url(id: user.id)
-    else
-      redirect_to new_post_url(user_id: user.id)
+    @post = @user.posts.new(post_params)
+    respond_to do |format|
+      format.html do
+        if @post.save
+          flash[:success] = 'Post created successfully'
+          redirect_to user_posts_path(@user)
+        else
+          flash[:error] = 'Post not created'
+          render :new, locals: { post: @post }
+        end
+      end
     end
   end
 
+  private
+
+  def fetch_user
+    @user = User.find(params[:user_id])
+  end
+
   def post_params
-    params.require(:post).permit(:Tilte, :Text)
+    params.require(:post).permit(:title, :text)
   end
 end

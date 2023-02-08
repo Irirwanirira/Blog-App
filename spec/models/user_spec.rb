@@ -1,26 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'Validations For the user model' do
-    before(:each) do
-      subject { User.new(name: 'Joseph', posts_counter: 3) }
-    end
+  subject { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
 
-    before { subject.save }
+  it 'name should be present' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
 
-    it 'Name must not be blank' do
-      subject.name = nil
-      expect(subject).to_not be_valid
-    end
+  it 'posts counter should be an integer' do
+    subject.posts_counter = 'one'
+    expect(subject).to_not be_valid
+  end
 
-    it 'CommentsCounter must be an integer' do
-      subject.posts_counter = ''
-      expect(subject).to_not be_valid
-    end
-
-    it 'CommentsCounter must be an integer greater than or equal to zero' do
-      subject.posts_counter = -1
-      expect(subject).to_not be_valid
-    end
+  it 'posts counter should be greater than or equal to 0' do
+    subject.posts_counter = -1
+    expect(subject).to_not be_valid
   end
 end

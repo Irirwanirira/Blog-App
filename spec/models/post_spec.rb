@@ -1,31 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe 'Validations For the post model' do
-    before(:each) do
-      subject { Post.new(Title: 'The Imposible ', comment_count: 10, like_counter: 34) }
-    end
+  subject { Post.create(title: 'Hello World', text: 'This is the first post of the blog', author_id: 1) }
 
-    before { subject.save }
+  it 'title should be present' do
+    subject.title = nil
+    expect(subject).to_not be_valid
+  end
 
-    it 'Title must not be blank.' do
-      subject.Title = nil
-      expect(subject).to_not be_valid
-    end
+  it 'title should not be too long' do
+    subject.title = 'a' * 251
+    expect(subject).to_not be_valid
+  end
 
-    it 'Title must not exceed 250 characters' do
-      subject.Title = 300
-      expect(subject).to_not be_valid
-    end
+  it 'comments counter should be an integer' do
+    subject.comments_counter = 'one'
+    expect(subject).to_not be_valid
+  end
 
-    it 'CommentsCounter must be an integer greater than or equal to zero' do
-      subject.comment_count = -1
-      expect(subject).to_not be_valid
-    end
+  it 'comments counter should be greater than or equal to 0' do
+    subject.comments_counter = -1
+    expect(subject).to_not be_valid
+  end
 
-    it 'LikesCounter must be an integer greater than or equal to zero' do
-      subject.like_counter = -1
-      expect(subject).to_not be_valid
-    end
+  it 'likes counter should be an integer' do
+    subject.likes_counter = 'one'
+    expect(subject).to_not be_valid
+  end
+
+  it 'likes counter should be greater than or equal to 0' do
+    subject.likes_counter = -1
+    expect(subject).to_not be_valid
   end
 end
