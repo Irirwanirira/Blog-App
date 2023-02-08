@@ -106,5 +106,12 @@ RSpec.describe 'Posts', type: :system do
         expect(page).to have_content(comment.author.name)
       end
     end
+    it 'I can see the comment each commentor left' do
+      visit user_post_path(@user, @post)
+      @post.comments.each do |comment|
+        comments = comment.author.name
+        expect(page).to have_content(comments)
+      end
+    end
   end
 end
