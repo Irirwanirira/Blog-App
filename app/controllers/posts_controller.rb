@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :fetch_user
 
   def index
-    @posts = @user.posts.
+    @posts = @user.posts.includes(:author, :comments)
   end
 
   def show
