@@ -6,17 +6,17 @@
 <% @posts.each do |post| %>
     <article>
         <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-            <h3><%= post.Title %></h3>
-            <p><%= post.Text.slice(0, 80) + '...' %>
+            <h3><%= post.title %></h3>
+            <p><%= post.text.slice(0, 80) + '...' %>
         </a>
         <section>
-            <p>Comments: <%= post.comment_count %></p>
-            <p>Likes: <%= post.like_counter %></p>
+            <p>Comments: <%= post.comments_counter %></p>
+            <p>Likes: <%= post.likes_counter %></p>
         </section>
         <section>
             <% post.recent_comments.each do |comment| %>
                 <article>
-                    <p><%= comment.author.name + ': ' + comment.Text %></p>
+                    <p><%= comment.author.name + ': ' + comment.text %></p>
                 </article>
             <% end %>
         </section>

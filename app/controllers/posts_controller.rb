@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :fetch_user
 
   def index
-    @posts = @user.posts.includes(:author, :comments)
+    @posts = @user.posts.
   end
 
   def show
@@ -37,6 +37,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:Title, :Text)
+    params.require(:post).permit(:title, :text)
   end
 end
