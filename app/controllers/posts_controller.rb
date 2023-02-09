@@ -16,15 +16,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post =Post.new(post_params)
+    new_post = Post.new(post_params)
     new_post.author = @user
-        if new_post.save
-          flash[:success] = 'Post created successfully'
-          redirect_to user_posts_path(@user)
-        else
-          flash[:error] = 'Post not created'
-          render :new, locals: { post: @post }
-        end
+    if new_post.save
+      flash[:success] = 'Post created successfully'
+      redirect_to user_posts_path(@user)
+    else
+      flash[:error] = 'Post not created'
+      render :new, locals: { post: @post }
+    end
   end
 
   private
