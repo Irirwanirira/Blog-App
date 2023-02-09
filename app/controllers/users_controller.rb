@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # layout 'standard'
   def index
-    redirect_to new_user_session_path if current_user.nil
+    # redirect_to new_user_session_path if current_user.nil
     @users = User.all
   end
 
