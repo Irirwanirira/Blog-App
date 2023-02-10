@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # layout 'standard'
+  load_and_authorize_resource
   before_action :fetch_user
 
   def index
@@ -8,11 +8,11 @@ class PostsController < ApplicationController
 
   def show
     @post = @user.posts.find(params[:id])
+    @user = @post.author_id
   end
 
   def new
     @post = Post.new
-    # render :new, locals: { post: @post }
   end
 
   def create
@@ -25,6 +25,14 @@ class PostsController < ApplicationController
       flash[:error] = 'Post not created'
       render :new, locals: { post: @post }
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    user = post.author_id
+    return unless post.destroy
+
+    redirect_to user_post_path(user, post.id)
   end
 
   private

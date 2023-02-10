@@ -1,8 +1,8 @@
 <article>
     <h1><%= @post.title + ' by ' + @post.author.name %></h1>
     <section>
-        <p>Comments: <%= @post.comments_counter %></p>
-        <p>Likes: <%= @post.likes_counter %></p>
+        <p>Comments: <%= @post.comments.count || 0 %></p>
+        <p>Likes: <%= @post.likes.count || 0 %></p>
     </section>
     <section>
         <p><%= @post.text %></p>
@@ -12,7 +12,12 @@
             <article>
                 <p><%= comment.author.name + ': ' + comment.text %></p>
             </article>
-        <% end %>
+         
+              <% if can? :destroy, comment %>
+              <%= button_to 'Delete Comment', user_post_comment_path(@user, @post.id, comment.id), method: :delete %><%end%>
+        
+        <%end%> </br>
+        
     </section>
     <section>
         <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
