@@ -76,6 +76,12 @@ To test your code for errors, rub the following
 - Twitter: [@twitterhandle](https://twitter.com/iri_joseph)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/Joseph Irirwanirira)
 
+👤 **Abdelhadi Hireche**
+
+- GitHub: [@aeh1707](https://github.com/aeh1707)
+- Twitter: [@aeh1707](https://twitter.com/aeh1707)
+- LinkedIn: [abdelhadi-hireche](https://www.linkedin.com/in/abdelhadi-hireche
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
